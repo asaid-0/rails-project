@@ -1,6 +1,6 @@
 class CommentsController < ApplicationController
     def save
-        user_id = 1 #suppose logged user id is 1
+        user_id = User.first.id #suppose logged user is first
         Comment.create user_id: user_id, post_id: params[:id], content: params[:content]
         redirect_to :posts
     end

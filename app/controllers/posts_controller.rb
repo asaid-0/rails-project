@@ -25,22 +25,15 @@ class PostsController < ApplicationController
     end
 
     def create
-        # render :index
-        # @post = User.find(1).posts.new
-        # @post = Post.new
-        # @post.title = params[:title]
-        # @post.content = params[:content]
-        # @post.save
+
         post_params = params.require(:post).permit(:title, :content)
-        #p = Post.new(params).save
-        # p = Post.create(post_params)
-        @post = User.find(1).posts.create(post_params)
+        # @post = User.find(1).posts.create(post_params)
+        @post = User.first.posts.create(post_params)
         if @post.id
             redirect_to :posts
         else
             render :new
         end
-        # redirect_to action: :index, controller: :user
     end
 
 end
