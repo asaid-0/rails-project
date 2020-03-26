@@ -1,12 +1,1 @@
-<%= form_tag(posts_path, method: "post") do |f| %>
-    <div>
-        <div class="form-group">
-            <%= text_field_tag :title, "", class: "form-control", placeholder: "Enter Title"%>
-        </div>
-        <div class="form-group">
-            <%= text_area_tag :content, "", class: "form-control", placeholder: "Enter Content"%>
-        </div>
-        <%# <%= f.submit "Create" %>
-        <input type="submit" value="save" class="btn btn-block btn-success">
-    </div>
-<% end %>
+<%= render partial: 'form', locals: { btn: 'Save', btnc: 'success' } %>
